@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5001/api';
+const API_URL = 'https://new-wealthiris.onrender.com/api';
 
 const api = {
   // Setup authorization header
