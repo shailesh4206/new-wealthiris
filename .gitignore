@@ -1,0 +1,11 @@
+node_modules/
+.env
+*.log
+git_log.txt
+git_log_utf8.txt
+update-logos.js
+check-encoding.js
+logo-check.txt
+update-logos-output.txt
+.DS_Store
+Thumbs.db

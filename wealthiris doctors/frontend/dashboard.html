@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vectorax Health - Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo.ico" alt="WealthIris" style="width:28px;height:28px;border-radius:4px;margin-right:8px;vertical-align:middle;"><i class="fa-solid fa-staff-snake"></i> Vectorax<span>Health</span>
+    </div>
+    <div class="user-snippet">
+      <img src="" id="navAvatar" class="user-avatar" alt="Avatar">
+      <span id="navName">Dr. Name</span>
+      <button id="logoutBtn" class="btn btn-outline btn-sm"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+    </div>
+  </nav>
+
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <ul class="sidebar-menu">
+        <li class="active" data-target="dashboardTab"><i class="fa-solid fa-chart-line"></i> Dashboard</li>
+        <li data-target="appointmentsTab"><i class="fa-solid fa-calendar-check"></i> Appointments</li>
+        <li data-target="historyTab"><i class="fa-solid fa-clock-rotate-left"></i> Patient History</li>
+        <li data-target="profileTab"><i class="fa-solid fa-user-doctor"></i> My Profile</li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      
+      <!-- Dashboard Tab -->
+      <section id="dashboardTab" class="tab-content">
+        <h2>Doctor Dashboard</h2>
+        <p>Overview of your practice.</p>
+
+        <div class="stats-grid" id="statsGrid">
+          <div class="stat-card">Loading stats...</div>
+        </div>
+
+        <div class="table-container">
+          <div class="table-header">
+            <h3>Today's Appointments</h3>
+            <button class="btn btn-outline btn-sm" onclick="switchTab('appointmentsTab')">View All</button>
+          </div>
+          <table id="todayAppointmentsTable">
+            <thead>
+              <tr>
+                <th>Patient Name</th>
+                <th>Time</th>
+                <th>Problem</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Appointments Tab -->
+      <section id="appointmentsTab" class="tab-content hidden">
+        <h2>Manage Appointments</h2>
+        <p>View and update all your appointments.</p>
+        
+        <div class="table-container">
+          <div class="table-header">
+            <h3>Pending Appointments</h3>
+          </div>
+          <table id="pendingAppointmentsTable">
+            <thead>
+              <tr>
+                <th>Date & Time</th>
+                <th>Patient Details</th>
+                <th>Problem</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="table-container">
+          <div class="table-header">
+            <h3>Completed & Canceled</h3>
+          </div>
+          <table id="pastAppointmentsTable">
+            <thead>
+              <tr>
+                <th>Date & Time</th>
+                <th>Patient Details</th>
+                <th>Status</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- History Tab -->
+      <section id="historyTab" class="tab-content hidden">
+        <h2>Patient History</h2>
+        <p>Records of past visits and prescriptions.</p>
+
+        <div class="table-container">
+          <table id="patientHistoryTable">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Patient Name</th>
+                <th>Problem</th>
+                <th>Prescription Notes</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Profile Tab -->
+      <section id="profileTab" class="tab-content hidden">
+        <h2>My Profile</h2>
+        
+        <div class="profile-card" id="profileViewCard">
+          <img src="" id="profileImg" class="profile-img-lg" alt="Profile">
+          <h3 id="profileName">Loading...</h3>
+          <p id="profileQual"></p>
+          <p id="profileClinic"></p>
+          <button id="editProfileBtn" class="btn btn-primary" style="margin-top: 1rem;">Edit Profile</button>
+        </div>
+
+        <div class="auth-box register-box hidden" id="editProfileBox" style="margin-top: 1.5rem; max-width: 100%;">
+          <h3>Update Profile Information</h3>
+          <form id="updateProfileForm">
+            <div class="form-grid">
+              <div class="form-group"><label>Full Name</label><input type="text" id="upName" required></div>
+              <div class="form-group"><label>Phone Number</label><input type="tel" id="upPhone" required></div>
+              <div class="form-group"><label>Qualification</label><input type="text" id="upQualification" required></div>
+              <div class="form-group"><label>Specialization</label><input type="text" id="upSpecialization" required></div>
+              <div class="form-group"><label>Years of Experience</label><input type="number" id="upExperience" required></div>
+              <div class="form-group"><label>Consultation Fees ($)</label><input type="number" id="upFees" required></div>
+              <div class="form-group full-width"><label>Hospital / Clinic Name</label><input type="text" id="upClinicName" required></div>
+              <div class="form-group full-width"><label>Clinic Address</label><input type="text" id="upClinicAddress" required></div>
+              <div class="form-group full-width"><label>Available Days (comma separated)</label><input type="text" id="upDays" required></div>
+              <div class="form-group full-width"><label>Available Time Slots (comma separated)</label><input type="text" id="upTimes" required></div>
+              <div class="form-group full-width"><label>About Doctor</label><textarea id="upAbout" rows="3"></textarea></div>
+              <div class="form-group full-width"><label>Update Profile Photo (Optional)</label><input type="file" id="upPhoto" accept="image/*"></div>
+            </div>
+            <div class="error-msg" id="upError"></div>
+            <div class="success-msg" id="upSuccess" style="display:none;">Profile updated successfully!</div>
+            <div style="display:flex; gap:1rem;">
+              <button type="submit" class="btn btn-primary" id="upSubmitBtn">Save Changes</button>
+              <button type="button" class="btn btn-outline" id="cancelEditBtn">Cancel</button>
+            </div>
+          </form>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Action Modal -->
+  <div id="actionModal" class="auth-container hidden" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; display:flex; align-items:center; justify-content:center; padding: 0;">
+    <div class="auth-box" style="max-width:400px; padding:2rem; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
+      <h3 id="modalTitle">Complete Appointment</h3>
+      <p id="modalDesc">Add prescription notes before completing.</p>
+      <input type="hidden" id="modalApptId">
+      <input type="hidden" id="modalActionType">
+      <div class="form-group">
+        <label>Prescription / Notes</label>
+        <textarea id="modalNotes" rows="4"></textarea>
+      </div>
+      <div style="display:flex; gap:1rem;">
+        <button id="modalConfirmBtn" class="btn btn-success btn-block" style="margin-top:0;">Confirm</button>
+        <button id="modalCancelBtn" class="btn btn-outline btn-block" style="margin-top:0;">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vectorax Health - Admin Panel</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Admin specific styles if needed */
+    .admin-navbar { background: #1a202c; color: white; }
+    .admin-navbar .logo { color: white; }
+    .admin-navbar .logo span { color: #e2e8f0; }
+  </style>
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+</head>
+<body>
+
+  <nav class="navbar admin-navbar">
+    <div class="logo">
+      <i class="fa-solid fa-shield-halved"></i> Vectorax<span>Admin</span>
+    </div>
+    <div class="user-snippet">
+      <span style="color:white; font-weight:600;">Administrator Portal</span>
+    </div>
+  </nav>
+
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <ul class="sidebar-menu">
+        <li class="active" data-target="doctorsTab"><i class="fa-solid fa-user-doctor"></i> Manage Doctors</li>
+        <li data-target="appointmentsTab"><i class="fa-solid fa-calendar-check"></i> System Appointments</li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      
+      <!-- Doctors Tab -->
+      <section id="doctorsTab" class="tab-content">
+        <h2>Registered Doctors</h2>
+        <p>Approve or manage platform access for doctors.</p>
+
+        <div class="table-container">
+          <table id="doctorsTable">
+            <thead>
+              <tr>
+                <th>Profile</th>
+                <th>Doctor Name</th>
+                <th>Credentials</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- All Appointments Tab -->
+      <section id="appointmentsTab" class="tab-content hidden">
+        <h2>All System Appointments</h2>
+        <p>Global view of all appointments booked on the platform.</p>
+        
+        <div class="table-container">
+          <table id="allAppointmentsTable">
+            <thead>
+              <tr>
+                <th>Date & Time</th>
+                <th>Doctor</th>
+                <th>Patient</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

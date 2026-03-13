@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vectorax Health Care - Doctor Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+</head>
+<body>
+  
+  <nav class="navbar">
+    <div class="logo">
+      <i class="fa-solid fa-staff-snake"></i> Vectorax<span>Health</span>
+    </div>
+    <div class="nav-links">
+      <button id="showLoginBtn" class="btn btn-outline">Login</button>
+      <button id="showRegisterBtn" class="btn btn-primary">Register</button>
+    </div>
+  </nav>
+
+  <div class="container hero-container" id="landingSection">
+    <div class="hero-content">
+      <h1>Streamline Your Medical Practice with Vectorax</h1>
+      <p>Manage appointments, track patient history, and grow your clinic with our comprehensive suite of tools designed exclusively for doctors.</p>
+      <button id="heroRegisterBtn" class="btn btn-primary btn-large">Join as a Doctor today</button>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5eb8?auto=format&fit=crop&q=80&w=800" alt="Doctor Portal" style="border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+    </div>
+  </div>
+
+  <!-- Auth Container -->
+  <div class="auth-container hidden" id="authSection">
+    
+    <!-- Login Form -->
+    <div class="auth-box" id="loginBox">
+      <h2>Doctor Login</h2>
+      <p>Welcome back! Please login to your dashboard.</p>
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="loginEmail" required placeholder="doctor@example.com">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" required placeholder="••••••••">
+        </div>
+        <div class="error-msg" id="loginError"></div>
+        <button type="submit" class="btn btn-primary btn-block" id="loginSubmitBtn">Login to Dashboard</button>
+        <p class="auth-switch">Don't have an account? <span id="switchToRegister">Register here</span></p>
+      </form>
+    </div>
+
+    <!-- Register Form -->
+    <div class="auth-box register-box hidden" id="registerBox">
+      <h2>Doctor Registration</h2>
+      <p>Join Vectorax Health Care to manage your practice.</p>
+      <form id="registerForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="regName" required placeholder="Dr. John Doe">
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="regEmail" required placeholder="doctor@example.com">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="regPhone" required placeholder="+1 234 567 8900">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="regPassword" required placeholder="••••••••">
+          </div>
+          <div class="form-group full-width">
+            <label>Profile Photo</label>
+            <input type="file" id="regPhoto" accept="image/*" required>
+          </div>
+          <div class="form-group">
+            <label>Qualification</label>
+            <input type="text" id="regQualification" required placeholder="MBBS, MD">
+          </div>
+          <div class="form-group">
+            <label>Specialization</label>
+            <input type="text" id="regSpecialization" required placeholder="Cardiology">
+          </div>
+          <div class="form-group">
+            <label>Years of Experience</label>
+            <input type="number" id="regExperience" required placeholder="10">
+          </div>
+          <div class="form-group">
+            <label>Consultation Fees ($)</label>
+            <input type="number" id="regFees" required placeholder="50">
+          </div>
+          <div class="form-group full-width">
+            <label>Hospital / Clinic Name</label>
+            <input type="text" id="regClinicName" required placeholder="City Hospital">
+          </div>
+          <div class="form-group full-width">
+            <label>Clinic Address</label>
+            <input type="text" id="regClinicAddress" required placeholder="123 Health Ave, NY">
+          </div>
+          <div class="form-group full-width">
+            <label>Available Days (e.g., Mon, Tue, Wed)</label>
+            <input type="text" id="regDays" required placeholder="Mon, Tue, Wed, Thu, Fri">
+          </div>
+          <div class="form-group full-width">
+            <label>Available Time Slots</label>
+            <input type="text" id="regTimes" required placeholder="09:00 AM - 01:00 PM, 04:00 PM - 08:00 PM">
+          </div>
+          <div class="form-group full-width">
+            <label>About Doctor</label>
+            <textarea id="regAbout" rows="3" placeholder="Brief description about your practice..."></textarea>
+          </div>
+        </div>
+        <div class="error-msg" id="regError"></div>
+        <div class="success-msg" id="regSuccess" style="display:none;">Registration Successful! Redirecting to login...</div>
+        <button type="submit" class="btn btn-primary btn-block" id="regSubmitBtn">Complete Registration</button>
+        <p class="auth-switch">Already have an account? <span id="switchToLogin">Login here</span></p>
+      </form>
+    </div>
+
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
